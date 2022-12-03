@@ -56,10 +56,6 @@ To start the dev API server run the following command:
 ```
 npm run dev
 ```
-### MongoDB Data
-
-The database will initially be empty, meaning that no words will be returned from the API. To populate your local MongoDB database, read through [Locally Populating Dictionary Data](#populating-data)
-
 ## Usage
 
 ### Documentation
