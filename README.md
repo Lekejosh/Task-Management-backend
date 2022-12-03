@@ -56,22 +56,6 @@ To start the dev API server run the following command:
 ```
 npm run dev
 ```
-
-Navigate to [localhost:4000](http://localhost:4000/) to see the API
-
-**Alternative dev start command**:
-
-To start the dev API server while running [MongoDB Replica sets](https://docs.mongodb.com/manual/replication/) and the [Redis cache](https://redis.io/), run:
-
-```
-yarn dev:full
-```
-
-**Warning**: Running replica sets locally is machine intensive and should only
-be ran for testing or specific-feature development purposes.
-
-**Reminder**: You must have Redis installed on your machine in order to run the server.
-
 ### MongoDB Data
 
 The database will initially be empty, meaning that no words will be returned from the API. To populate your local MongoDB database, read through [Locally Populating Dictionary Data](#populating-data)
