@@ -26,7 +26,7 @@ router.route("/password/reset/:token").put(resetPassword);
 router.route("/password/update").put(isAuthenticatedUser, updatePassword);
 router.route("/profile/update").put(isAuthenticatedUser, updateUserProfile);
 router
-  .route("/users")
+  .route("/admin/users")
   .get(isAuthenticatedUser, authorizeRoles("admin"), getAllUsers);
   
 

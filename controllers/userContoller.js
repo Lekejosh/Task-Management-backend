@@ -197,7 +197,7 @@ exports.updateUser = catchAsyncErrors(async (req, res, next) => {
   }
   res.status(200).json({
     success: true,
-    message: "Role Updated Successfully",
+    message: "User Updated Successfully",
   });
 });
 

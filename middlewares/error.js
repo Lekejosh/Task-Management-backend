@@ -12,7 +12,7 @@ module.exports = (err, req, res, next) => {
 
   //Momgoose duplicate Key error
   if (err.code === 11000) {
-    const message = `Duplicate ${Object.keys(err.keyValue)} Entered`;
+    const message = `User Already Exists`;
     err = new ErrorHandler(message, 400);
   }
 
