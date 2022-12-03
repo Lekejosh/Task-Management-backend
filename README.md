@@ -25,6 +25,31 @@ Move into the project directory and install it's dependencies:
 cd Task-Management-backend/
 npm install
 ```
+In the config folder create a file name "config.js"
+
+Then paste and replace the below with your personal credentials
+
+```
+DB_URI = your db url here... example => 'mongodb://localhost:27017/taskManagement'
+
+JWT_SECRET= Your JWT Secret here
+
+JWT_EXPIRE = 5d
+
+COOKIE_EXPIRE=5
+
+PORT =4000 // Don't change this
+
+SMPT_SERVICE=your service provider here... example=> gmail
+
+SMPT_HOST= Host here... example=> stmp.gmail.com
+
+SMPT_PORT=465
+
+SMPT_MAIL=email address here
+
+SMPT_PASSWORD=email password here
+```
 
 To start the dev API server run the following command:
 
@@ -435,10 +460,17 @@ For example:
 
 ```
 GET:  http://localhost:4000/api/v1/admin/users
-
-
+```
+```
+Response - 401
 ```
 
+```json
+{
+  "success": false,
+  "message": "Please Login to access this resource"
+}
+```
 ```
 Response - 403
 ```
@@ -493,14 +525,20 @@ For example:
 
 ```
 GET:  http://localhost:4000/api/v1/admin/user/638b1c0ff700c7f51a31745e
-
-
+```
+```
+Response - 401
 ```
 
+```json
+{
+  "success": false,
+  "message": "Please Login to access this resource"
+}
+```
 ```
 Response - 403
 ```
-
 ```json
 {
   "success": false,
@@ -554,7 +592,16 @@ body
   "role": "user"
 }
 ```
+```
+Response - 401
+```
 
+```json
+{
+  "success": false,
+  "message": "Please Login to access this resource"
+}
+```
 ```
 Response - 403
 ```
@@ -591,7 +638,16 @@ DELETE:  localhost:4000/api/v1/admin/user/638b1c0ff700c7f51a31745e
 
 
 ```
+```
+Response - 401
+```
 
+```json
+{
+  "success": false,
+  "message": "Please Login to access this resource"
+}
+```
 ```
 Response - 403
 ```
