@@ -73,8 +73,6 @@ For example:
 
 ```
 POST:  http://localhost:4000/api/v1/register
-
-
 ```
 
 ```
@@ -126,15 +124,12 @@ Response - 201
 
 ```
 /api/v1/login
-
 ```
 
 For example:
 
 ```
 POST:  http://localhost:4000/api/v1/login
-
-
 ```
 
 ```
@@ -185,15 +180,11 @@ Response -200
 
 ```
 /api/v1/me
-
 ```
-
 For example:
 
 ```
 GET:  http://localhost:4000/api/v1/me
-
-
 ```
 
 ```
@@ -238,8 +229,6 @@ For example:
 
 ```
 GET:  http://localhost:4000/api/v1/logout
-
-
 ```
 
 ```
@@ -275,8 +264,6 @@ For example:
 
 ```
 POST:  http://localhost:4000/api/v1/password/forgot
-
-
 ```
 
 ```
@@ -316,15 +303,12 @@ Response
 
 ```
 /api/v1/password/reset/:token
-
 ```
 
 For example:
 
 ```
 PUT:  http://localhost:4000/api/v1/password/reset/2f21043200b397ba7f4b1cce746aa9d184e85766
-
-
 ```
 
 ```
@@ -375,15 +359,12 @@ Response - 200
 
 ```
 /api/v1/profile/update
-
 ```
 
 For example:
 
 ```
 PUT:  http://localhost:4000/api/v1/profile/update
-
-
 ```
 
 ```
@@ -498,7 +479,6 @@ Response - 200
 
 ```
 /api/v1/admin/user/:id
-
 ```
 
 For example:
@@ -557,8 +537,6 @@ For example:
 
 ```
 PUT:  localhost:4000/api/v1/admin/user/638b1c0ff700c7f51a31745e
-
-
 ```
 
 ```
@@ -592,7 +570,6 @@ Response - 403
   "message": "Role: user is not allowed to access this resource"
 }
 ```
-
 ```
 Response - 200
 ```
@@ -608,15 +585,12 @@ Response - 200
 
 ```
 /api/v1/admin/user/:id
-
 ```
 
 For example:
 
 ```
 DELETE:  localhost:4000/api/v1/admin/user/638b1c0ff700c7f51a31745e
-
-
 ```
 ```
 Response - 401
@@ -654,15 +628,12 @@ Response - 200
 
 ```
 /api/v1/task/create
-
 ```
 
 For example:
 
 ```
 POST:  http://localhost:4000/api/v1/task/create
-
-
 ```
 
 ```
@@ -710,16 +681,13 @@ Response - 200
 ### GET USER TASKS
 
 ```
-/api/v1/task/my
-
+/api/v1/task/me
 ```
 
 For example:
 
 ```
-GET:  http://localhost:4000/api/v1/task/my
-
-
+GET:  http://localhost:4000/api/v1/task/me
 ```
 
 ```
@@ -763,23 +731,145 @@ Response - 200
 }
 ```
 
+### GET SINGLE TASK
+
+```
+/api/v1/task/:id
+```
+
+For example:
+
+```
+GET:  localhost:4000/api/v1/task/638b35ce12d58800695c5b48
+```
+
+```
+Response - 401
+```
+
+```json
+{
+  "success": false,
+  "message": "Please Login to access this resource"
+}
+```
+
+```
+Response - 200
+```
+
+```json
+{
+    "success": true,
+    "task": {
+        "_id": "638b35ce12d58800695c5b48",
+        "date": "2022-01-02T23:00:00.000Z",
+        "prority": "Very Important",
+        "description": "Some Urgent",
+        "completed": true,
+        "user": "638b1c0ff700c7f51a31745e",
+        "__v": 0
+    }
+}
+```
+
+### GET COMPLETED TASK
+
+```
+/api/v1/task/user/completed
+```
+
+For example:
+
+```
+GET:  localhost:4000/api/v1/task/user/completed
+```
+
+```
+Response - 401
+```
+
+```json
+{
+  "success": false,
+  "message": "Please Login to access this resource"
+}
+```
+
+```
+Response - 200
+```
+
+```json
+{
+    "success": true,
+    "task": {
+        "_id": "638b35ce12d58800695c5b48",
+        "date": "2022-01-02T23:00:00.000Z",
+        "prority": "Very Important",
+        "description": "Some Urgent",
+        "completed": true,
+        "user": "638b1c0ff700c7f51a31745e",
+        "__v": 0
+    }
+}
+```
+
+### GET TASK BY DATE
+
+```
+/api/v1/task/user/date?q=YYYY-MM-DD
+```
+
+For example:
+
+```
+GET:  localhost:4000/api/v1/task/user/date?q=2022-01-02
+```
+
+```
+Response - 401
+```
+
+```json
+{
+  "success": false,
+  "message": "Please Login to access this resource"
+}
+```
+
+```
+Response - 200
+```
+
+```json
+{
+    "success": true,
+    "task": {
+        "_id": "638b35ce12d58800695c5b48",
+        "date": "2022-01-02T23:00:00.000Z",
+        "prority": "Very Important",
+        "description": "Some Urgent",
+        "completed": true,
+        "user": "638b1c0ff700c7f51a31745e",
+        "__v": 0
+    }
+}
+```
 ### UPDATE TASKS
 
 ```
 /api/v1/task/:id/update
-
 ```
 
 For example:
 
 ```
 PUT:  localhost:4000/api/v1/task/638b28c95efe287e61939835/update
-
-
 ```
 
-```body
-
+```
+body
 ```
 
 ```json
@@ -818,5 +908,104 @@ Response - 200
     "user": "638a96ce5bf6fb242c9e845c",
     "__v": 0
   }
+}
+```
+### DELETE TASKS
+
+```
+/api/v1/task/:id
+```
+
+For example:
+
+```
+DELETE:  localhost:4000/api/v1/task/638b28c95efe287e61939835
+```
+```
+Response - 401
+```
+
+```json
+{
+  "success": false,
+  "message": "Please Login to access this resource"
+}
+```
+
+```
+Response - 200
+```
+
+```json
+{
+    "success": true,
+    "message": "Task Delete successfully"
+}
+```
+
+
+### DELETE ALL TASKS
+
+```
+/api/v1/task/delete/all
+```
+
+For example:
+
+```
+DELETE:  localhost:4000/api/v1/task/delete/all
+```
+```
+Response - 401
+```
+
+```json
+{
+  "success": false,
+  "message": "Please Login to access this resource"
+}
+```
+
+```
+Response - 200
+```
+
+```json
+{
+    "success": true,
+    "message": "Task Delete successfully"
+}
+```
+
+### DELETE ALL COMPLETED TASKS
+
+```
+/api/v1/task/delete/completed
+```
+
+For example:
+
+```
+DELETE:  localhost:4000/api/v1/task/delete/completed
+```
+```
+Response - 401
+```
+
+```json
+{
+  "success": false,
+  "message": "Please Login to access this resource"
+}
+```
+
+```
+Response - 200
+```
+
+```json
+{
+    "success": true,
+    "message": "Task Delete successfully"
 }
 ```

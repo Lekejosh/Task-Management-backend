@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema({
   date: {
@@ -13,14 +13,14 @@ const taskSchema = new mongoose.Schema({
     type: String,
     maxLength: [150, "FirstName Cannot exceed 150 Characters"],
   },
-  completed:{
-    type:Boolean,
-    default:"false"
+  completed: {
+    type: Boolean,
+    default: "false",
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "user",
   },
 });
- 
-module.exports= mongoose.model("task",taskSchema)
+
+module.exports = mongoose.model("task", taskSchema);
