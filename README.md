@@ -62,6 +62,8 @@ npm run dev
 
 This is the documentaion of the api
 
+link to the [Postman version](https://documenter.getpostman.com/view/17957003/2s8YzMWjxk)
+
 ### REGISTER USER
 
 ```
